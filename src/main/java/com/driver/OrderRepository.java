@@ -25,6 +25,7 @@ public class OrderRepository {
     }
 
     public String addOrder(Order order){
+        if (order==null) return "Order is null";
         if(!orders.containsKey(order.getId())){
             orders.put(order.getId(),order);
             return "New order added successfully";
@@ -93,7 +94,7 @@ public class OrderRepository {
     }
 
     public Integer getCountOfUnassignedOrders(){
-        int count =0;
+        Integer count =0;
         for(Map.Entry<String,Order> order: orders.entrySet()){
             if(!orderDeliveryPartnerMap.containsKey(order.getValue())){
                 count++;
