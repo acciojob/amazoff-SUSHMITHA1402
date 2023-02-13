@@ -95,6 +95,9 @@ public class OrderRepository {
 
     public Integer getCountOfUnassignedOrders(){
         Integer count =0;
+        if(orders.isEmpty()){
+            return count;
+        }
         for(Map.Entry<String,Order> order: orders.entrySet()){
             if(!orderDeliveryPartnerMap.containsKey(order.getValue())){
                 count++;
