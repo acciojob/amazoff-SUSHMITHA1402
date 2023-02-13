@@ -76,14 +76,18 @@ public class OrderRepository {
         return partners.get(partnerId).getNumberOfOrders();
     }
 
-    public List<Order> getOrdersByPartnerId(String partnerId){
-        return partnerOrdersMap.get(partnerId);
+    public List<String> getOrdersByPartnerId(String partnerId){
+        List<String> partnerOrders = new ArrayList<>();
+        for(Order order:partnerOrdersMap.get(partnerId)){
+            partnerOrders.add(order.getId());
+        }
+        return partnerOrders;
     }
 
-    public List<Order> getAllOrders(){
-        List<Order> allOrders = new ArrayList<>();
+    public List<String> getAllOrders(){
+        List<String> allOrders = new ArrayList<>();
         for(Map.Entry<String,Order> order: orders.entrySet()){
-            allOrders.add(order.getValue());
+            allOrders.add(order.getKey());
         }
         return allOrders;
     }

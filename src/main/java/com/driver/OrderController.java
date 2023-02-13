@@ -70,7 +70,7 @@ public class OrderController {
     }
 
     @GetMapping("/get-orders-by-partner-id/{partnerId}")
-    public ResponseEntity<List<Order>> getOrdersByPartnerId(@PathVariable String partnerId){
+    public ResponseEntity<List<String>> getOrdersByPartnerId(@PathVariable String partnerId){
         List<String> orders = null;
 
         //orders should contain a list of orders by PartnerId
@@ -79,7 +79,7 @@ public class OrderController {
     }
 
     @GetMapping("/get-all-orders")
-    public ResponseEntity<List<Order>> getAllOrders(){
+    public ResponseEntity<List<String>> getAllOrders(){
         List<String> orders = null;
 
         //Get all orders
