@@ -156,6 +156,9 @@ public class OrderRepository {
         for(Map.Entry<String,String> orderPartner : orderDeliveryPartnerMap.entrySet()){
             if(orderPartner.getKey().equals(orderId)){
                 orderDeliveryPartnerMap.remove(orderId);
+                String partnerId = orderPartner.getValue();
+                DeliveryPartner partner = partners.get(partnerId);
+                partner.setNumberOfOrders(partner.getNumberOfOrders()-1);
                 List<Order> orderset = partnerOrdersMap.get(orderPartner.getValue());
                 int index = orderset.indexOf(order);
                 orderset.remove(index);
