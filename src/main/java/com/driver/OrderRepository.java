@@ -144,8 +144,9 @@ public class OrderRepository {
     public String deletePartnerById(String partnerId){
         DeliveryPartner partner = partners.get(partnerId);
         for(Map.Entry<String,String> order : orderDeliveryPartnerMap.entrySet()){
+            String orderId = order.getKey();
             if(order.getValue().equals(partnerId)){
-                orderDeliveryPartnerMap.remove(order.getKey());
+                orderDeliveryPartnerMap.remove(orderId);
             }
         }
         partners.remove(partnerId);
