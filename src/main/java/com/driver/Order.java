@@ -5,9 +5,6 @@ public class Order {
     private String id;
     private int deliveryTime;
 
-    public Order() {
-    }
-
     public Order(String id, String deliveryTime) {
 
         // The deliveryTime has to converted from string to int and then stored in the attribute
